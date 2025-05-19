@@ -1,17 +1,17 @@
-[gd_scene load_steps=16 format=4 uid="uid://b74hiwryx57ks"]
+[gd_scene load_steps=16 format=4 uid="uid://ykb08adpy2ys"]
 
-[ext_resource type="Script" uid="uid://by2o2vpqtyacu" path="res://scripts/game_manager.gd" id="1_gee14"]
-[ext_resource type="PackedScene" uid="uid://bhajsl1878p4p" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="FontFile" uid="uid://ddmhvacce5bem" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_0tnpc"]
-[ext_resource type="Texture2D" uid="uid://b2iq0hcgivyo" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://1fbpl54uadto" path="res://scenes/platform.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://cv1e54y1crcgh" path="res://scenes/coin.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://okw2gtcwyctu" path="res://scenes/killzone.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://cs6k0u8ivgctx" path="res://scenes/slime.tscn" id="6_p57ef"]
-[ext_resource type="FontFile" uid="uid://cxrm43pm1nlhf" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://by2o2vpqtyacu" path="res://scripts/game_manager.gd" id="1_b0vvs"]
+[ext_resource type="FontFile" uid="uid://ddmhvacce5bem" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_oyk6k"]
+[ext_resource type="Texture2D" uid="uid://b2iq0hcgivyo" path="res://assets/sprites/world_tileset.png" id="3_gycjm"]
+[ext_resource type="PackedScene" uid="uid://bhajsl1878p4p" path="res://scenes/player.tscn" id="4_8i1lk"]
+[ext_resource type="PackedScene" uid="uid://okw2gtcwyctu" path="res://scenes/killzone.tscn" id="5_hgky1"]
+[ext_resource type="PackedScene" uid="uid://cv1e54y1crcgh" path="res://scenes/coin.tscn" id="6_b4tpv"]
+[ext_resource type="PackedScene" uid="uid://1fbpl54uadto" path="res://scenes/platform.tscn" id="7_hkuam"]
+[ext_resource type="PackedScene" uid="uid://cs6k0u8ivgctx" path="res://scenes/slime.tscn" id="8_f3b2k"]
+[ext_resource type="FontFile" uid="uid://cxrm43pm1nlhf" path="res://assets/fonts/PixelOperator8.ttf" id="9_sqrei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
-texture = ExtResource("2_yqjtg")
+texture = ExtResource("3_gycjm")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -214,11 +214,11 @@ _data = {
 &"move": SubResource("Animation_lnu2h")
 }
 
-[node name="Game" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_gee14")
+script = ExtResource("1_b0vvs")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
 offset_left = 521.0
@@ -226,7 +226,7 @@ offset_top = -171.0
 offset_right = 623.0
 offset_bottom = -122.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_0tnpc")
+theme_override_fonts/font = ExtResource("2_oyk6k")
 theme_override_font_sizes/font_size = 8
 text = "You collected X coins"
 horizontal_alignment = 1
@@ -245,7 +245,7 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAD+/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAACAAQAAAAGAAAAAAADAAQAAAAGAAAAAAAEAAQAAAAGAAAAAAAIAAQAAAAGAAAAAAAJAAQAAAAGAAAAAAAMAAQAAAAGAAAAAAANAAQAAAAGAAAAAAAFAAQAAAAJAAAAAAAGAAQAAAAKAAAAAAAHAAQAAAALAAAAAAD+/wMAAAABAAAAAAD//wMAAAAAAAEAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAAAAAEAAAAAAAQAAAAAAAEAAAD//wQAAAAAAAEAAAD9/wUAAAAAAAEAAAD+/wUAAAAAAAEAAAD//wUAAAAAAAEAAAAAAAUAAAAAAAEAAAABAAUAAAABAAEAAAD+/wYAAAABAAEAAAD//wYAAAAAAAEAAAAAAAYAAAAAAAEAAAABAAYAAAAAAAEAAAD9/wYAAAAAAAEAAAACAAUAAAAGAAEAAAACAAYAAAAIAAAAAAADAAYAAAAGAAEAAAAEAAYAAAAIAAAAAAAEAAUAAAAGAAEAAAAIAAUAAAAGAAEAAAAIAAYAAAAGAAEAAAAJAAYAAAAIAAAAAAAJAAUAAAAGAAEAAAAMAAUAAAAGAAEAAAAMAAYAAAAGAAEAAAANAAYAAAAGAAEAAAANAAUAAAAIAAAAAAADAAUAAAAIAAEAAAADAP//AAAAAAEAAAADAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAEAP7/AAAAAAEAAAAFAP7/AAAAAAEAAAAFAP//AAAAAAEAAAAEAP//AAABAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAJAAAAAAAJAP//AAALAAAAAAAKAP//AAAAAAAAAAALAP7/AAAAAAAAAAAMAP7/AAAAAAAAAAANAP//AAAAAAAAAAAGAAAAAAAAAAEAAAAHAAAAAAAAAAEAAAALAP//AAAAAAEAAAAMAP//AAAAAAEAAAAMAAAAAAAAAAEAAAANAAAAAAAAAAEAAAAKAAAAAAAAAAEAAAALAAAAAAABAAEAAAAOAAAAAAAEAAAAAAAPAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAARAAEAAAAFAAAAAAASAAIAAAAFAAEA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")
 tile_set = SubResource("TileSet_lbhrr")
 
-[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+[node name="Player" parent="." instance=ExtResource("4_8i1lk")]
 position = Vector2(8, 30)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -256,7 +256,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="Killzone" parent="." instance=ExtResource("5_iywne")]
+[node name="Killzone" parent="." instance=ExtResource("5_hgky1")]
 position = Vector2(1, 173)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
@@ -265,42 +265,42 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Coins" type="Node" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(57, 53)
 
-[node name="Coin4" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin4" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(79, -57)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin2" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(201, 55)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin3" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(217, 55)
 
-[node name="Coin5" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin5" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(323, 24)
 
-[node name="Coin6" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin6" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(538, 25)
 
-[node name="Coin7" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin7" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(796, -40)
 
-[node name="Coin8" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin8" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(826, -40)
 
-[node name="Coin10" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin10" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(616, -121)
 
-[node name="Coin9" parent="Coins" instance=ExtResource("4_lbhrr")]
+[node name="Coin9" parent="Coins" instance=ExtResource("6_b4tpv")]
 position = Vector2(851, -40)
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="Platform" parent="Platforms" instance=ExtResource("3_lnu2h")]
+[node name="Platform" parent="Platforms" instance=ExtResource("7_hkuam")]
 position = Vector2(16, -4)
 
-[node name="Platform2" parent="Platforms" instance=ExtResource("3_lnu2h")]
+[node name="Platform2" parent="Platforms" instance=ExtResource("7_hkuam")]
 position = Vector2(352, 37)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
@@ -311,7 +311,7 @@ autoplay = "move"
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Slime" parent="Enemies" instance=ExtResource("6_p57ef")]
+[node name="Slime" parent="Enemies" instance=ExtResource("8_f3b2k")]
 position = Vector2(553, 64)
 
 [node name="Labels" type="Node" parent="."]
@@ -322,7 +322,7 @@ offset_top = 7.0
 offset_right = 7.0
 offset_bottom = 56.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
-theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_fonts/font = ExtResource("9_sqrei")
 theme_override_font_sizes/font_size = 8
 text = "Space to jump
 "
@@ -333,7 +333,7 @@ offset_top = -63.0
 offset_right = 869.0
 offset_bottom = -14.0
 theme_override_colors/font_color = Color(0.0784314, 0.596078, 0.862745, 1)
-theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_fonts/font = ExtResource("9_sqrei")
 theme_override_font_sizes/font_size = 8
 text = "Almost there...
 "
@@ -344,7 +344,7 @@ offset_top = 57.0
 offset_right = 480.0
 offset_bottom = 106.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
-theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_fonts/font = ExtResource("9_sqrei")
 theme_override_font_sizes/font_size = 8
 text = "Falling Hurts..."
 
@@ -354,6 +354,6 @@ offset_top = -183.0
 offset_right = 646.0
 offset_bottom = -134.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_fonts/font = ExtResource("9_sqrei")
 theme_override_font_sizes/font_size = 8
 text = "You made it!"
