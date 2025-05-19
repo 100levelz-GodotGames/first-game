@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=4 uid="uid://cwdjl7r5ohvlp"]
+[gd_scene load_steps=14 format=4 uid="uid://cwdjl7r5ohvlp"]
 
 [ext_resource type="Script" uid="uid://by2o2vpqtyacu" path="res://scripts/game_manager.gd" id="1_d0grl"]
 [ext_resource type="FontFile" uid="uid://ddmhvacce5bem" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_1nvli"]
 [ext_resource type="Texture2D" uid="uid://b2iq0hcgivyo" path="res://assets/sprites/world_tileset.png" id="3_vals0"]
 [ext_resource type="PackedScene" uid="uid://bhajsl1878p4p" path="res://scenes/player.tscn" id="5_a76di"]
 [ext_resource type="FontFile" uid="uid://cxrm43pm1nlhf" path="res://assets/fonts/PixelOperator8.ttf" id="6_1nvli"]
+[ext_resource type="PackedScene" uid="uid://cv1e54y1crcgh" path="res://scenes/coin.tscn" id="6_a76di"]
 [ext_resource type="PackedScene" uid="uid://okw2gtcwyctu" path="res://scenes/killzone.tscn" id="6_d3ub6"]
+[ext_resource type="PackedScene" uid="uid://1fbpl54uadto" path="res://scenes/platform.tscn" id="6_oem7y"]
 [ext_resource type="Texture2D" uid="uid://3yv8evgvl16m" path="res://assets/sprites/keys.png" id="7_vals0"]
+[ext_resource type="Texture2D" uid="uid://b41hsamhhn6k6" path="res://assets/sprites/space.png" id="8_vals0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("3_vals0")
@@ -177,7 +180,6 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
 [node name="Level0" type="Node2D"]
-position = Vector2(4, -6)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -204,51 +206,93 @@ tile_set = SubResource("TileSet_lbhrr")
 
 [node name="Mid" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAD//wMAAAABAAEAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAABAAEAAAAAAAQAAAAAAAEAAAD//wQAAAAAAAEAAAD//wUAAAABAAAAAAAAAAUAAAAAAAEAAAABAAUAAAAAAAEAAAD9/wMAAAABAAYAAAD9/wQAAAAAAAAAAAD9/wUAAAAAAAEAAAD9/wYAAAAAAAEAAAD9/wcAAAAAAAEAAAD+/wMAAAABAAAAAAD+/wQAAAAAAAAAAAD+/wUAAAAAAAEAAAD+/wYAAAABAAEAAAD+/wcAAAAAAAEAAAD//wYAAAAAAAEAAAAAAAYAAAABAAEAAAABAAYAAAAAAAEAAAABAAcAAAABAAAAAAAAAAcAAAAAAAEAAAD//wcAAAAAAAEAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAJAAAAAAAGAAQAAAAKAAAAAAAHAAQAAAALAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAJAAAAAAALAAQAAAALAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAJAAMAAAAAAAcAAAANAAMAAAAGAAgAAAACAAUAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAUAAAABAAEAAAAEAAYAAAAAAAEAAAADAAYAAAABAAAAAAACAAYAAAAAAAEAAAAIAAUAAAABAAEAAAAIAAYAAAAAAAEAAAAIAAcAAAABAAEAAAAJAAcAAAAAAAEAAAAJAAYAAAABAAAAAAAJAAUAAAAAAAEAAAAEAAcAAAAAAAEAAAADAAcAAAAAAAEAAAACAAcAAAAAAAEAAAAMAAUAAAABAAAAAAAMAAYAAAAAAAEAAAANAAYAAAABAAAAAAANAAUAAAAAAAEAAAANAAcAAAAAAAEAAAAMAAcAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAD9////AAABAAYAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAEAAAD+/wIAAAABAAEAAAD//wAAAAAAAAAAAAD//wEAAAABAAAAAAD//wIAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAABAAEAAAABAAAAAAAAAAAAAAABAAEAAAAAAAEAAAABAAIAAAAAAAEAAAACAAAAAAAAAAAAAAACAAEAAAAAAAEAAAACAAIAAAAAAAEAAAADAAAAAAAAAAAAAAADAAEAAAAAAAEAAAADAAIAAAABAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAABAAEAAAAEAAIAAAAAAAEAAAD8/wAAAAAAAAEAAAD8////AAAAAAEAAAD8//7/AAAAAAEAAAD8//3/AAABAAEAAAD8//z/AAAAAAEAAAD8/wEAAAAAAAEAAAD8/wIAAAAAAAEAAAD7/wIAAAAAAAEAAAD7/wEAAAAAAAEAAAD7/wAAAAABAAEAAAD7////AAAAAAEAAAD7//7/AAABAAAAAAD7//3/AAAAAAEAAAD7//z/AAAAAAEAAAD7//v/AAAAAAAAAAD6//v/AAAAAAAAAAD6//z/AAAAAAEAAAD6//3/AAABAAEAAAD6//7/AAAAAAEAAAD6////AAAAAAEAAAD6/wAAAAAAAAEAAAD6/wIAAAABAAEAAAAEAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAADAAgAAAAAAAEAAAAEAAgAAAABAAEAAAAFAAgAAAAAAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAAAAAEAAAAIAAgAAAABAAAAAAAJAAgAAAAAAAEAAAAJAAkAAAAAAAEAAAAIAAkAAAAAAAEAAAAHAAkAAAABAAEAAAAGAAkAAAAAAAEAAAAFAAkAAAAAAAEAAAAEAAkAAAAAAAEAAAADAAkAAAAAAAEAAAAEAAoAAAAAAAEAAAAFAAoAAAABAAAAAAAGAAoAAAAAAAEAAAAHAAoAAAAAAAEAAAAIAAoAAAAAAAEAAAAJAAoAAAABAAAAAAAKAAoAAAAAAAEAAAAKAAkAAAAAAAEAAAAKAAgAAAABAAAAAAADAAoAAAABAAEAAAACAP7/AAACAAgAAAACAP//AAADAAgAAAACAPr/AAACAAQAAAACAP3/AAACAAgAAAACAPz/AAADAAcAAAAHAAYAAAABAAYAAAAFAAYAAAAAAAcAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAEAAAAMAAMAAAAAAAEAAAAMAAQAAAAAAAEAAAAMAAUAAAABAAAAAAAMAAYAAAAAAAEAAAAMAAcAAAAAAAEAAAAMAAgAAAABAAEAAAAMAAkAAAAAAAEAAAAMAAoAAAAAAAEAAAANAAEAAAAAAAAAAAANAAIAAAAAAAEAAAANAAMAAAABAAEAAAANAAQAAAAAAAEAAAANAAUAAAAAAAEAAAANAAYAAAAAAAEAAAANAAcAAAABAAEAAAANAAgAAAAAAAEAAAANAAkAAAAAAAEAAAANAAoAAAABAAEAAAALAAcAAAAAAAAAAAALAAgAAAAAAAEAAAALAAkAAAAAAAEAAAALAAoAAAAAAAEAAAAAAAcAAAAAAAAAAAD9/wcAAAAKAAAAAAD8/wcAAAAJAAAAAAD7/wcAAAAAAAAAAAD6/wcAAAAAAAAAAAD6/wgAAAABAAAAAAD6/wkAAAAAAAEAAAD6/woAAAAAAAEAAAD7/woAAAABAAEAAAD7/wkAAAAAAAEAAAD7/wgAAAAAAAEAAAAMAP7/AAAAAAMAAAAMAP//AAAAAAQAAAAMAAAAAAAAAAUAAAD//wcAAAAAAAAAAAD//wgAAAAAAAEAAAD//wkAAAAAAAEAAAD//woAAAABAAEAAAD//wYAAAABAAMAAAAAAAgAAAAAAAEAAAAAAAkAAAABAAAAAAAAAAoAAAAAAAEAAAD+/wcAAAALAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAgAAAAAAAEAAAABAAkAAAAAAAEAAAACAAkAAAABAAEAAAABAAoAAAAAAAEAAAACAAoAAAAAAAEAAAACAAgAAAAAAAEAAAACAAYAAAAHAAMAAAABAAYAAAAHAAMAAAADAAYAAAAHAAMAAAACAAUAAAAHAAMAAAD5/wcAAAAAAAAAAAD4/wcAAAAAAAAAAAD3/wcAAAAAAAAAAAD3/wgAAAABAAEAAAD3/wkAAAAAAAEAAAD4/wkAAAAAAAEAAAD4/woAAAABAAAAAAD5/woAAAABAAEAAAD5/wkAAAAAAAEAAAD5/wgAAAAAAAEAAAD4/wgAAAAAAAEAAAD3/woAAAABAAAAAADz/wIAAAAAAAAAAADz/wMAAAAAAAEAAADz/wQAAAABAAEAAAD0/wIAAAAAAAAAAAD0/wMAAAABAAAAAAD0/wQAAAAAAAEAAADy/wIAAAAAAAAAAADy/wMAAAABAAEAAADy/wQAAAAAAAEAAAD4/wUAAAAAAAMAAAD4/wYAAAAAAAUAAAD6/wEAAAAAAAEAAADy/wEAAAABAAQAAADx/wIAAAAAAAAAAADw/wIAAAAAAAAAAADv/wIAAAAAAAAAAADu/wIAAAAAAAAAAADx/wMAAAAAAAEAAADw/wMAAAABAAEAAADv/wMAAAAAAAEAAADv/wQAAAAAAAEAAADw/wQAAAAAAAEAAADx/wQAAAAAAAEAAADu/wQAAAABAAEAAADu/wMAAAAAAAEAAADt/wIAAAAAAAAAAADs/wIAAAAAAAAAAADr/wIAAAAAAAAAAADq/wIAAAAAAAAAAADt/wMAAAABAAAAAADs/wMAAAAAAAEAAADr/wMAAAABAAEAAADr/wQAAAABAAAAAADs/wQAAAAAAAEAAADt/wQAAAAAAAEAAADq/wMAAAAAAAEAAADq/wQAAAABAAAAAADq/wAAAAADAAcAAADq/wEAAAADAAgAAADq//7/AAACAAQAAADr/wEAAAAAAAcAAAA=")
 tile_set = SubResource("TileSet_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("5_a76di")]
-position = Vector2(2, 36)
+position = Vector2(0, -7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -7)
 zoom = Vector2(4, 4)
-limit_bottom = 120
+limit_bottom = 300
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="Killzone" parent="." instance=ExtResource("6_d3ub6")]
-position = Vector2(1, 173)
+position = Vector2(0, 310)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(175, -35)
 shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Coins" type="Node" parent="."]
 
+[node name="Coin" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(72, -12)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(116, 43)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(183, 98)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(152, 97)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(41, 65)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(-40, 104)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(-136, 102)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("6_a76di")]
+position = Vector2(-200, 23)
+
 [node name="Platforms" type="Node" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("6_oem7y")]
+position = Vector2(-148, 71)
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Labels" type="Node" parent="."]
 
 [node name="Move Left" type="Label" parent="Labels"]
-offset_left = 70.0
-offset_top = 20.0
-offset_right = 152.0
-offset_bottom = 43.0
+offset_left = 114.0
+offset_top = 65.0
+offset_right = 196.0
+offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("6_1nvli")
 theme_override_font_sizes/font_size = 8
 text = "Move Left"
 horizontal_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Jump" type="Label" parent="Labels"]
+anchors_preset = -1
+anchor_bottom = -0.00617284
+offset_left = -51.0
+offset_top = 87.0
+offset_right = 31.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("6_1nvli")
+theme_override_font_sizes/font_size = 8
+text = "Jump!!
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Or" type="Label" parent="Labels"]
-offset_left = -28.0
-offset_top = -22.0
-offset_right = 54.0
-offset_bottom = 1.0
+offset_left = -44.0
+offset_top = -58.0
+offset_right = 38.0
+offset_bottom = -35.0
 theme_override_fonts/font = ExtResource("6_1nvli")
 theme_override_font_sizes/font_size = 8
 text = "OR"
@@ -257,10 +301,10 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Or2" type="Label" parent="Labels"]
-offset_left = 70.0
-offset_top = 7.0
-offset_right = 152.0
-offset_bottom = 30.0
+offset_left = 115.0
+offset_top = 52.0
+offset_right = 197.0
+offset_bottom = 75.0
 theme_override_fonts/font = ExtResource("6_1nvli")
 theme_override_font_sizes/font_size = 8
 text = "OR"
@@ -269,10 +313,10 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Move Right" type="Label" parent="Labels"]
-offset_left = -26.0
-offset_top = -9.0
-offset_right = 56.0
-offset_bottom = 10.0
+offset_left = -42.0
+offset_top = -45.0
+offset_right = 40.0
+offset_bottom = -26.0
 theme_override_fonts/font = ExtResource("6_1nvli")
 theme_override_font_sizes/font_size = 8
 text = "Move Right
@@ -281,32 +325,41 @@ horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="W" type="Sprite2D" parent="Labels"]
-position = Vector2(267, 6)
-texture = ExtResource("7_vals0")
-region_enabled = true
-region_rect = Rect2(0, 0, 16, 16)
-
 [node name="A" type="Sprite2D" parent="Labels"]
-position = Vector2(90, 10)
+position = Vector2(134, 55)
 texture = ExtResource("7_vals0")
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 16)
 
 [node name="LeftArrow" type="Sprite2D" parent="Labels"]
-position = Vector2(133, 10)
+position = Vector2(177, 55)
 texture = ExtResource("7_vals0")
 region_enabled = true
 region_rect = Rect2(64, 0, 16, 16)
 
 [node name="Right Arrow" type="Sprite2D" parent="Labels"]
-position = Vector2(39, -19)
+position = Vector2(23, -55)
 texture = ExtResource("7_vals0")
 region_enabled = true
 region_rect = Rect2(80, 0, 16, 16)
 
 [node name="D" type="Sprite2D" parent="Labels"]
-position = Vector2(-9, -19)
+position = Vector2(-25, -55)
 texture = ExtResource("7_vals0")
 region_enabled = true
 region_rect = Rect2(48, 0, 16, 16)
+
+[node name="Space" type="Sprite2D" parent="Labels"]
+position = Vector2(-10, 70)
+texture = ExtResource("8_vals0")
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = -241.0
+offset_top = 87.0
+offset_right = -144.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("6_1nvli")
+theme_override_font_sizes/font_size = 8
+text = "Jump through platforms!"
+horizontal_alignment = 1
+autowrap_mode = 2

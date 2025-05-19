@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://c7u3ghu10kxo2"]
+[gd_scene load_steps=9 format=4 uid="uid://c7u3ghu10kxo2"]
 
 [ext_resource type="Script" uid="uid://by2o2vpqtyacu" path="res://scripts/game_manager.gd" id="1_conm7"]
 [ext_resource type="FontFile" uid="uid://ddmhvacce5bem" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_d3jkd"]
 [ext_resource type="Texture2D" uid="uid://b2iq0hcgivyo" path="res://assets/sprites/world_tileset.png" id="3_u3awl"]
 [ext_resource type="PackedScene" uid="uid://bhajsl1878p4p" path="res://scenes/player.tscn" id="4_2ku1j"]
 [ext_resource type="PackedScene" uid="uid://okw2gtcwyctu" path="res://scenes/killzone.tscn" id="5_f31uk"]
-[ext_resource type="PackedScene" uid="uid://1fbpl54uadto" path="res://scenes/platform.tscn" id="7_i8kv5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("3_u3awl")
@@ -176,7 +175,6 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 
 [node name="Level1" type="Node2D"]
-position = Vector2(4, -6)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -205,9 +203,6 @@ tile_set = SubResource("TileSet_lbhrr")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAD//wMAAAABAAEAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAABAAEAAAAAAAQAAAAAAAEAAAD//wQAAAAAAAEAAAD//wUAAAABAAAAAAAAAAUAAAAAAAEAAAABAAUAAAAAAAEAAAD9/wMAAAABAAYAAAD9/wQAAAAAAAAAAAD9/wUAAAAAAAEAAAD9/wYAAAAAAAEAAAD9/wcAAAAAAAEAAAD+/wMAAAABAAAAAAD+/wQAAAAAAAAAAAD+/wUAAAAAAAEAAAD+/wYAAAABAAEAAAD+/wcAAAAAAAEAAAD//wYAAAAAAAEAAAAAAAYAAAABAAEAAAABAAYAAAAAAAEAAAABAAcAAAABAAAAAAAAAAcAAAAAAAEAAAD//wcAAAAAAAEAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAJAAAAAAAGAAQAAAAKAAAAAAAHAAQAAAALAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAJAAAAAAALAAQAAAALAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAJAAMAAAAAAAcAAAANAAMAAAAGAAgAAAACAAUAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAUAAAABAAEAAAAEAAYAAAAAAAEAAAADAAYAAAABAAAAAAACAAYAAAAAAAEAAAAIAAUAAAABAAEAAAAIAAYAAAAAAAEAAAAIAAcAAAABAAEAAAAJAAcAAAAAAAEAAAAJAAYAAAABAAAAAAAJAAUAAAAAAAEAAAAEAAcAAAAAAAEAAAADAAcAAAAAAAEAAAACAAcAAAAAAAEAAAAMAAUAAAABAAAAAAAMAAYAAAAAAAEAAAANAAYAAAABAAAAAAANAAUAAAAAAAEAAAANAAcAAAAAAAEAAAAMAAcAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_lbhrr")
-
-[node name="Platform" parent="TileMap" instance=ExtResource("7_i8kv5")]
-position = Vector2(192, -37)
 
 [node name="Player" parent="." instance=ExtResource("4_2ku1j")]
 position = Vector2(8, 30)
