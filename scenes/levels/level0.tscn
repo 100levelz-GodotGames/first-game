@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://cwdjl7r5ohvlp"]
+[gd_scene load_steps=14 format=4 uid="uid://cwdjl7r5ohvlp"]
 
 [ext_resource type="Script" uid="uid://by2o2vpqtyacu" path="res://scripts/game_manager.gd" id="1_d0grl"]
-[ext_resource type="FontFile" uid="uid://ddmhvacce5bem" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_1nvli"]
 [ext_resource type="Texture2D" uid="uid://b2iq0hcgivyo" path="res://assets/sprites/world_tileset.png" id="3_vals0"]
 [ext_resource type="PackedScene" uid="uid://bhajsl1878p4p" path="res://scenes/player.tscn" id="5_a76di"]
 [ext_resource type="FontFile" uid="uid://cxrm43pm1nlhf" path="res://assets/fonts/PixelOperator8.ttf" id="6_1nvli"]
@@ -185,18 +184,6 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_d0grl")
-
-[node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = -288.0
-offset_top = 280.0
-offset_right = -186.0
-offset_bottom = 329.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_1nvli")
-theme_override_font_sizes/font_size = 8
-text = "You collected X coins"
-horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="TileMap" type="Node" parent="."]
 
