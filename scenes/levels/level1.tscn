@@ -223,14 +223,14 @@ unique_name_in_owner = true
 script = ExtResource("1_conm7")
 
 [node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = 54.0
-offset_top = -212.0
-offset_right = 156.0
-offset_bottom = -163.0
+offset_left = 723.0
+offset_top = -217.0
+offset_right = 825.0
+offset_bottom = -168.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_d3jkd")
 theme_override_font_sizes/font_size = 8
-text = "You collected X coins"
+text = "You collected X coins!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
